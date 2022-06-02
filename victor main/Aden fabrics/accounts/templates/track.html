@@ -1,0 +1,52 @@
+{% extends 'main.html' %}
+{% load static %}
+{% block content %}
+{% load crispy_forms_tags %}
+
+{% include 'topnavbar.html' %}
+{% include 'sidebar.html' %}
+
+<div class="main-panel">
+    <div class="content">
+        <div class="container-fluid">
+            <h4 class="page-title">Add Inventory</h4>
+<!-- -----------------------*******------------------------ -->
+        <section class="offer-01">
+            <div class="container">
+                <div class="row">
+                    <div class="col-12">
+                        <div class="heading" id="request">
+                            <h2>Track Customer Data</h2>
+                        </div>
+                    </div>
+                    <div class="col-md-6 text-dark">
+                        <div class="wrapper">
+                            <div class="image">
+                                <div class="inner-content">
+                                    <ul>
+                                        <li class="">
+                                            <h6 class="text-dark pt-2">Enter the date you which to track the record, Then Click On Track</h6>
+                                        </li>
+                                    </ul>
+                                    <form action="{% url 'search' %}" method="GET">
+                                        <div class="content">
+                                            <div class="row">
+                                                <div class="container"><textarea type="text" placeholder="yyyy-mm-dd" name="created_at" required="required" rows="2" class="form-control input-sm mb-3"  ></textarea></div>
+                                                <div class="container"><button class="btn btn-danger ">Track</button></div>
+                                            </div>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+   
+</div>
+</div>
+    
+{% endblock content %}
+    

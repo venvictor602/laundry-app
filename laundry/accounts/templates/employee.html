@@ -1,0 +1,117 @@
+{% extends 'main.html' %}
+{% load static %}
+{% block content %}
+
+{% include 'topnavbar.html' %}
+{% include 'sidebar.html' %}
+<div class="main-panel">
+    <div class="content">
+        <div class="container-fluid">
+            <h4 class="page-title">Employee Data</h4>
+            {% include '_alerts.html' %}
+                <div class="card">
+                    
+                    <div class="card-body">
+                        <form method="POST" action="{% url 'employee' %}">
+                            {% csrf_token %}
+                        <label for="FirstName">First Name </label>
+                        <input type="text" class="form-control" id="FirstName" placeholder="Enter FirstName" name="first_name" required>
+                    
+                        
+                        <label for="LastName">Last Name </label>
+                        <input type="text" class="form-control" id="LastName" placeholder="Enter LastName" name=last_name required>
+                        
+                          
+                        <label for="Address">Address</label>
+                        <textarea class="form-control" id="address" rows="5" name="address" required>
+
+                        </textarea>
+                
+                        <label for="jobtype">Job Type </label>
+                        <input type="text" class="form-control" id="jobtype" placeholder="Enter job type" name="job_type" required>
+
+                        <label for="lga">L.G.A </label>
+                        <input type="text" class="form-control" id="lga" placeholder="Enter lga" name="lga" required>
+                
+                    
+                        <label for="State">State </label>
+                        <input type="text" class="form-control" id="State" placeholder="Enter State" name="state" required>
+                
+                    
+                        <label for="Phone">Phone Number </label>
+                        <input type="text" class="form-control" id="Phone" placeholder="Enter Phone Number" name="phone_no" required>
+                    </div>
+                        
+                            <div class="card-action">
+                                <button class="btn btn-success">Submit</button>
+                            </div>
+
+                        </form>
+                    </div>
+                </div>
+								
+					
+				
+    
+
+<div class="card">
+    <div class="card-header">
+        <div class="card-title">Update Employee Record</div>
+    </div>
+    <div class="card-body table-responsive">
+        <table class="table  table-hover">
+            <thead>
+                <tr>
+                    <th scope="col">ID</th>
+                    <th scope="col">First Name</th>
+                    <th scope="col">Last Name</th>
+                    <th scope="col">Address</th>
+                    <th scope="col">LGA</th>
+                    <th scope="col">State</th>
+                    <th scope="col">Job Type</th>
+                    <th scope="col">Phone Number</th>
+
+
+                    
+                    
+
+                    
+
+                </tr>
+            </thead>
+            <tbody>
+                
+                {% for employees in employee %}
+                    
+                
+                    
+                <tr>
+                    <td>{{employees.id}}</td>
+                    <td>{{employees.first_name}}</td>
+                    <td>{{employees.last_name}}</td>
+                    <td>{{employees.address}}</td>
+                    <td>{{employees.lga}}</td>
+                    <td>{{employees.state}}</td>
+                    <td>{{employees.job_type}}</td>
+                    <td>{{employees.phone_no}}</td>
+
+                </tr>
+                {% endfor %} 
+            </tbody>
+        </table>
+    </div>
+</div>
+
+        </div>
+    </div>
+
+
+    
+
+
+    
+{% endblock content %}
+    
+
+
+

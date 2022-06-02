@@ -1,0 +1,66 @@
+{% load static %}
+
+ <header>
+     <!-- Header Start -->
+     <div class="header-area">
+         <div class="main-header header-sticky">
+             <!-- Logo -->
+             <div class="header-left">
+                 <div class="logo">
+                     <a href="{% url 'home' %}"><img src="{% static 'assets/img/logo/logo.png' %}" alt=""></a>
+                 </div>
+                 <div class="menu-wrapper  d-flex align-items-center">
+                     <!-- Main-menu -->
+                     <div class="main-menu d-none d-lg-block">
+                         <nav> 
+                             <ul id="navigation">                                                                                          
+                                 <li {% if '/' == request.path %}
+                                 class="active"
+                               {% else %}
+                                 class=""
+                               {% endif %}><a href="{% url 'home' %}">Home</a></li>
+
+                                 <li {% if '/about/' == request.path %}
+                                 class="active"
+                               {% else %}
+                                 class=""
+                               {% endif %}><a href="{% url 'about' %}">About</a></li>
+                                
+                                {% if user.is_authenticated %}
+                                  
+                                  
+                                 
+                                <li {% if '/logout/' == request.path %}
+                                class="active"
+                              {% else %}
+                                class=""
+                              {% endif %}><a href="{% url 'logout' %}">Logout</a></li>
+                               
+                                {% else %}
+                                
+                                
+                               <li {% if '/login/' == request.path %}
+                               class="active"
+                             {% else %}
+                               class=""
+                             {% endif %}><a href="{% url 'login' %}">Login</a></li>
+                                {% endif %}
+
+
+                             </ul>
+                         </nav>
+                     </div>
+                 </div>
+             </div> 
+             <div class="header-right d-none d-lg-block">
+                 
+                 <a href="{% url 'dashboard' %}" class="header-btn2">Dashboard</a>
+             </div>
+             <!-- Mobile Menu -->
+             <div class="col-12">
+                 <div class="mobile_menu d-block d-lg-none"></div>
+             </div>
+         </div>
+     </div>
+     <!-- Header End -->
+ </header>

@@ -1,0 +1,63 @@
+{% extends 'main.html' %}
+{% load static %}
+{% block content %}
+{% load crispy_forms_tags %}
+
+{% include 'topnavbar.html' %}
+{% include 'sidebar.html' %}
+<div class="main-panel">
+    <div class="content">
+        <div class="container-fluid">
+            <h4 class="page-title">Daily Report</h4>
+            <div>
+                <a href="{% url 'addreport' %}" class="btn btn-primary mb-4"><i class="la la-plus"></i> Add Report</a>
+            </div>
+            {% include '_alerts.html' %}
+
+            <div class="card">
+                        <div class="card-header">
+                            <div class="card-title">Update/View Report</div>
+                        </div>
+                        <div class="card-body table-responsive">
+                            <table class="table  table-hover">
+                                <thead>
+                                    <tr>
+                                        
+                                        <th scope="col">Total income</th>
+                                        <th scope="col">Total Profit</th>
+                                        <th scope="col">Total Expenditure</th>
+                                        <th scope="col">Total Laundry Claimed<th>
+                                        <th scope="col">Total Customer</th>
+                                        <th scope="col">Date Created<th>
+                                        
+                                        
+                                        
+                    
+                                        
+                    
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    
+                                    {% for reports in report %}    
+                                    <tr>
+                                        
+                                        <td>{{reports.total_income_for_today}}</td>
+                                        <td>{{reports.total_profit_for_today}}</td>
+                                        <td>{{reports.total_expenditure_today}}</td>
+                                        <td>{{reports.total_laundry_claimed_today}}</td>
+                                        <td></td>
+                                        <td>{{reports.total_customer_today}}</td>
+                                        <td class="mr-4">{{reports.created_at}}</td>
+                                        <td><a href="{% url 'editreport' reports.id %}" type="button" class="btn btn-success">Edit</a></td>
+                                        <td><a href="{% url 'deletereport' reports.id %}" type="button" class="btn btn-danger">Delete</a></td>
+                                    </tr>
+                                    {% endfor %} 
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

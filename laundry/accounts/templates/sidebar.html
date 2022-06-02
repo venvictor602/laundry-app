@@ -1,0 +1,85 @@
+{% load static %}
+<div class="sidebar">
+    <div class="scrollbar-inner sidebar-wrapper">
+        <ul class="nav">
+            <li {% if '/dashboard/' == request.path %}
+            class="nav-item active"
+          {% else %}
+            class="nav-item"
+          {% endif %} >
+                <a href="{% url 'dashboard' %}">
+                    <i class="la la-dashboard"></i>
+                    <p>Dashboard</p>
+                    
+                </a>
+            </li>
+            <li {% if '/employee/' == request.path %}
+            class="nav-item active"
+          {% else %}
+            class="nav-item"
+          {% endif %}>
+                <a href="{% url 'employee' %}">
+                    <i class="la la-table"></i>
+                    <p>Employee Data</p>
+                    
+                </a>
+            </li>
+            <li {% if '/customer/' == request.path %}
+            class="nav-item active"
+          {% else %}
+            class="nav-item"
+          {% endif %}>
+                <a href="{% url 'customer' %}">
+                    <i class="la la-keyboard-o"></i>
+                    <p>Customer Data</p>
+                    
+                </a>
+            </li>
+            <li {% if '/report/' == request.path %}
+            class="nav-item active"
+          {% else %}
+            class="nav-item"
+          {% endif %}>
+                <a href="{% url 'report' %}">
+                    <i class="la la-th"></i>
+                    <p>Report</p>
+                    
+                </a>
+            </li>
+            
+            <li {% if '/inventory/' == request.path %}
+            class="nav-item active"
+            {% else %}
+                class="nav-item"
+            {% endif %}>
+                <a href="{% url 'inventory' %}">
+                    <i class="la la-edit"></i>
+                    <p>Inventory</p>
+                    
+                </a>
+            </li>
+            <li {% if '/track/' == request.path %}
+            class="nav-item active"
+          {% else %}
+            class="nav-item"
+          {% endif %}>
+                <a href="{% url 'track' %}">
+                    <i class="la la-search"></i>
+                    <p>Track Customer Data</p>
+
+                </a>
+            </li>
+
+            
+            
+            <li class="nav-item update-pro">
+                
+                    <a href="{% url 'logout' %}" style="text-decoration: none; color: #fff;" type="button" class="btn btn-lg btn-primary">
+                        <i class="la la-sign-out"></i>
+                    <p>Logout</p>
+                    </a>
+                
+            </li>
+        </ul>
+    </div>
+</div>

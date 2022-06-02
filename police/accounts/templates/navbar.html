@@ -1,0 +1,32 @@
+{% load static %}
+<!-- Header Area Starts -->
+<header class="header-area main-header">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-2">
+                <div class="logo-area">
+                    <a href=""><img src="{% static 'assets/images/logo/logo.jpg' %}" alt="logo" height="100%" width="100%"></a>
+                </div>
+            </div>
+            <div class="col-lg-10">
+                <div class="custom-navbar">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>  
+                <div class="main-menu">
+                    <ul>
+                        <li class="active"><a href="{% url 'home' %}">Home</a></li>
+                        
+                        <li><a href="{% url 'contact' %}">Contact Us</a></li>
+                        <li><a href="{% url 'jobs' %}">Find Jobs</a></li>
+                        <li class="menu-btn">
+                            <a href="/admin/" class="template-btn">Admin Login</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+<!-- Header Area End -->

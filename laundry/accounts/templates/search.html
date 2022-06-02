@@ -1,0 +1,69 @@
+{% extends 'main.html' %}
+{% load static %}
+{% block content %}
+{% load crispy_forms_tags %}
+
+{% include 'topnavbar.html' %}
+{% include 'sidebar.html' %}
+<div class="main-panel">
+    <div class="content">
+        <div class="container-fluid">
+            <h4 class="page-title">Customer Data</h4>
+            <div class="card">
+                {% if custo %}
+
+                        <div class="card-header">
+                            <div class="card-title">Update Customer Record</div>
+                        </div>
+
+                        <div class="card-body table-responsive">
+                            <table class="table  table-hover">
+                                <thead>
+                                    <tr>
+                                        <th scope="col">ID</th>
+                                        <th scope="col">Full name</th>
+                                        <th scope="col">Service Render</th>
+                                        <th scope="col">Cloth Type</th>
+                                        <th scope="col">Amount Charged<th>
+                                        <th scope="col">Status<th>
+                                        <th scope="col">Date Created<th>
+                                        
+                                        
+                                        
+                    
+                                        
+                    
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    
+                                    {% for customers in custo %}    
+                                    <tr>
+                                        <td>{{customers.id}}</td>
+                                        <td>{{customers.service_render}}</td>
+                                        <td>{{customers.cloth_type}}</td>
+                                        <td>{{customers.total_number_of_cloth}}</td>
+                                        <td>{{customers.amount_charged}}</td>
+                                        <td></td>
+                                        <td><button class="btn btn-primary">{{customers.status}}</button></td>
+<td></td>
+                                        <td>{{customers.created_at}}</td>
+                                        <td><a href="{% url 'editcustomer' customers.id %} " type="button" class="btn btn-success">Edit</a></td>
+                                        
+                                        <td><a href="{% url 'deletecustomer' customers.id %}" type="button" class="btn btn-danger">Delete</a></td>
+                                    </tr>
+                                    {% endfor %} 
+                                </tbody>
+                            </table>
+                        </div>
+                        
+                {% else %}
+                <h4 class="text-center">Enter the appropriate date yyyy-mm-dd example 2022-11-2</h4>
+                <h4 class="text-center">or</h4>
+                <h4 class="text-center">There is no available record on this date u have entered</h4>
+                {% endif %}
+                    </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
